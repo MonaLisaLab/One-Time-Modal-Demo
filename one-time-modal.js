@@ -1,11 +1,18 @@
 function OneTimeModal(){
-    document.querySelector("body").style.overflow="hidden";
-    document.querySelector(".onetimemodal").style.display="flex";
-    localStorage.setItem("onetimemodal","displayed");
+    const keycheck=localStorage.getItem("onetimemodal");
+    if(keycheck==null){
+        // If you have never displayed a modal
+        document.querySelector("body").style.overflow="hidden";
+        document.querySelector(".OTmodal-wrapper").style.display="flex";
+        localStorage.setItem("onetimemodal","displayed");
+    }else{
+        // If you have displayed a modal at least once
+        console.log("Do not display the modal.")
+    }
 }
 
 function CloseModal(){
-    document.querySelector(".onetimemodal").style.display="none";
+    document.querySelector(".OTmodal-wrapper").style.display="none";
     document.querySelector("body").style.overflow="auto";
 }
 
@@ -15,21 +22,20 @@ function KeyReset(){ //For testing
 }
 
 window.onload=()=>{
+    document.querySelector(".OTmodal-wrapper").style=modalwrapper;
     document.querySelector(".onetimemodal").style=modalcss;
-    const keycheck=localStorage.getItem("onetimemodal");
-    if(keycheck==null){
-        // If you have never displayed a modal
-        OneTimeModal();
-    }else{
-        // If you have displayed a modal at least once
-        console.log("Do not display the modal.")
-    }
 }
 
 // You can change modal's style here
-const modalcss="position:fixed; top:50%; left:50%;"+ 
-               "transform:translate(-50%,-50%);"+  
-               "display:none;"+ 
+const modalwrapper="position:fixed; top:0%; left:0%;"+
+                  "width:100vw;"+
+                  "height:100vh;"+
+                  "z-index:10;"+
+                  "display:none;"+
+                  "justify-content:center; align-items:center;"+
+                  "background-color:inherit;"
+
+const modalcss="display:flex;"+ 
                "justify-content:center; align-items:center; flex-direction:column; gap:50px;"+ 
                "font-size:1em;"+ 
                "background-color:rgb(241, 245, 249);"+ 
