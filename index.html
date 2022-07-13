@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, viewport-fit=cover">
+    <script src="one-time-modal.js"></script>
+    <link rel="stylesheet" href="SpeedFlex.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Rubik+Microbe&display=swap" rel="stylesheet">
+    <title>one-time-modal</title>
+</head>
+<body class="flex j-start a-center column">
+    <h1>One-Time-Modal</h1>
+    <button onclick="KeyReset()">Allow the modal to be displayed again</button>
+    <button onclick="OneTimeModal()">ShowModal</button>
+    <div class="OTmodal-wrapper">
+      <div class="onetimemodal">
+        <p class="modaltitle">Title</p>
+        <p>The modal is displayed only once. When you visit the page again, the modal will not be displayed.</p>
+        <p>The background is fixed and cannot be scrolled while the modal is displayed.</p>
+        <button onclick="CloseModal()">Close</button>
+      </div>
+    </div>
+</body>
+</html>
